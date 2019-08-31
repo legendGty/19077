@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>录入信息</title>
+
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/add.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h3>学员信息录入</h3>
+            <form role="form">
+                <legend>信息录入</legend>
+
+                <div class="form-group">
+                    <label for="">姓名</label>
+                    <input type="text" class="form-control name" id="" placeholder="请输入姓名(只能为汉字)">
+                    <span class="point_na"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">手机号</label>
+                    <input type="text" class="form-control phonenum" id="" placeholder="请输入手机号">
+                    <span class="point_ph"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">QQ</label>
+                    <input type="text" class="form-control qqnum" id="" placeholder="请输入QQ号(4-9位数字)">
+                    <span class="point_qq"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">专业</label>
+                    <input type="text" class="form-control major" id="" placeholder="请输入专业">
+                </div>
+                <div class="form-group">
+                    <label for="">毕业时间</label>
+                    <input type="text" class="form-control gtime" id="" placeholder="请输入例如：2019-8-13">
+                    <span class="point_time"></span>
+                </div>
+                <button type="button" class="btn btn-large btn-block btn-primary addmsg">录入</button>
+
+            </form>
+
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        let obj={
+            cname:".name",
+            cph:".phonenum",
+            cqq:".qqnum",
+            ctime:".gtime"
+        }
+        let spanobj={
+            sname:".point_na",
+            sph:".point_ph",
+            sqq:".point_qq",
+            stime:".point_time"
+        }
+        check(obj,spanobj)
+        $(".addmsg").click(function () {
+            if (phe == 1 && nam == 1 && qq == 1 && time == 1) {
+                add(".addmsg")
+                $("form-control").val("")
+            } else {
+                alert("请输入正确格式的信息")
+            }
+        })
+
+        function add(sel) {
+            let username = $('.name').val()
+            let phonenum = $('.phonenum').val()
+            let qqnum = $('.qqnum').val()
+            let major = $('.major').val()
+            let gtime = $('.gtime').val()
+
+            let obj = {
+                username,
+                phonenum,
+                qqnum,
+                major,
+                gtime
+            }
+            let arr = JSON.parse(localStorage.getItem('per'))
+            if (arr && arr.length != 0) {
+                let id = arr[arr.length - 1].id
+                obj.id = id + 1
+                arr.push(obj)
+                localStorage.setItem('per', JSON.stringify(arr))
+                alert('添加成功！')
+                location.href = "index.html"
+
+            } else {
+                obj.id = 1
+                let arr = []
+                arr.push(obj)
+                localStorage.setItem('per', JSON.stringify(arr))
+                alert('添加成功！')
+                location.href = "index.html"
+            }
+        }
+    </script>
+</body>
+
+</html>

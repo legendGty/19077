@@ -1,0 +1,17 @@
+
+.form input{
+    width: 200px;
+}
+.epoint_na,.epoint_ph,.epoint_qq,.epoint_time{
+    font-size: 12px;
+    color:red;
+}
+.search_name{
+    width: 300px;
+    /* display: line-block; */
+    float: left
+}
+.form-group{
+/* overflow: hidden; */
+margin: 10px 0;
+}

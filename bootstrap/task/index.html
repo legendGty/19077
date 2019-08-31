@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>列表页</title>
+
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <h4>学生信息管理系统</h4>
+
+            <form role="form">
+                <!-- <legend>Form title</legend> -->
+                <div class="form-group">
+                    <!-- <label for="">label</label> -->
+                    <input type="text" class="form-control search_name" placeholder="Input field">
+                </div>
+                <button type="button" class="btn btn-primary search">查询</button>
+
+                <a class="btn btn-default" href="add.html" role="button">新增</a>
+
+            </form>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>手机号</th>
+                        <th>QQ</th>
+                        <th>专业</th>
+                        <th>毕业时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody class="content">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="modal fade" id="modal-id">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">修改信息</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form role="editform">
+                                <legend>信息录入</legend>
+
+                                <div class="form-group">
+                                    <label for="">姓名</label>
+                                    <input type="text" class="form-control ename" id="" placeholder="请输入姓名(只能为汉字)">
+                                    <span class="epoint_na"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">手机号</label>
+                                    <input type="text" class="form-control ephonenum" id="" placeholder="请输入手机号">
+                                    <span class="epoint_ph"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">QQ</label>
+                                    <input type="text" class="form-control eqqnum" id="" placeholder="请输入QQ号">
+                                    <span class="epoint_qq"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">专业</label>
+                                    <input type="text" class="form-control emajor" id="" placeholder="请输入专业">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">毕业时间</label>
+                                    <input type="text" class="form-control egtime" id="" placeholder="请输入毕业时间">
+                                    <span class="epoint_time"></span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                            <button type="button" data-dismiss="modal"
+                                class="btn btn-primary btn-default saveidt">保存修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        render(".content")
+        del(".del")
+        search(".search")
+        edit(".editmsg", ".saveidt")
+    </script>
+</body>
+
+</html>
